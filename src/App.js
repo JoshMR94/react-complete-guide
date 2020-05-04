@@ -39,7 +39,8 @@ class App extends Component {
     }
 
     deletePersonHandler = (personIndex) => {
-        const persons = this.state.persons;
+        //You must do a copy of the array instead of getting a pointer with a simple =. It's equivalente to [...this.state.persons]
+        const persons = this.state.persons.slice();
         persons.splice(personIndex, 1);
         this.setState({persons: persons});
     }
